@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "56cf15d2-6e21-4c78-bc8b-04dc7a3c85a9",
+		"name": "Banking_Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createAccountWithProfile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"account_no\":\"1222337IOB\",\r\n    \"firstname\":\"ankita\",\r\n    \"lastname\":\"gupta\",\r\n    \"email\":\"17ankita@gmail.com\",\r\n    \"contact\":9899958857\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9091/banking/createAccountWithProfile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"banking",
+						"createAccountWithProfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get account details by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9091/banking/432156",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"banking",
+						"432156"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all profile details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9091/banking/getAllProfiles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"banking",
+						"getAllProfiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get profile details by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9091/banking/getProfile/432156",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"banking",
+						"getProfile",
+						"432156"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
