@@ -1,4 +1,4 @@
-# Bankig_Application
+# Banking_Application
 Microservices that interact with each other
 
 
