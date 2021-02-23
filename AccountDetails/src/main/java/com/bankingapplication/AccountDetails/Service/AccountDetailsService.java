@@ -1,5 +1,6 @@
 package com.bankingapplication.AccountDetails.Service;
 
+import com.bankingapplication.AccountDetails.Exception.AccountNotFoundException;
 import com.bankingapplication.AccountDetails.Model.AccountDetailsModel;
 import com.bankingapplication.AccountDetails.Repository.AccountDetailsDAO;
 import org.slf4j.Logger;
@@ -27,6 +28,7 @@ public class AccountDetailsService {
 
     public Optional<AccountDetailsModel> getAccountDetails(String accountNumber)
     {
-        return  accountDetailsDAO.findById(accountNumber);
+        Optional<AccountDetailsModel> accountDetails = accountDetailsDAO.findById(accountNumber);
+        return accountDetails;
     }
 }

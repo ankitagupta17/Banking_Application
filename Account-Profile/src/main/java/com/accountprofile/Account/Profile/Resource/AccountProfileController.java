@@ -1,9 +1,12 @@
 package com.accountprofile.Account.Profile.Resource;
 
+import com.accountprofile.Account.Profile.Exception.AccountDetailsNotFoundException;
+import com.accountprofile.Account.Profile.Exception.AccountProfileNotFoundException;
 import com.accountprofile.Account.Profile.Model.AccountProfileModel;
 import com.accountprofile.Account.Profile.Service.AccountProfileService;
 import com.accountprofile.Account.Profile.ValueObject.AccountDetailsModel;
 import com.accountprofile.Account.Profile.ValueObject.ResponseTemplateVO;
+import org.apache.http.HttpException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,12 +42,22 @@ public class AccountProfileController {
     @GetMapping("/{account_no}")
     public ResponseTemplateVO getAccountInfoByAccNo(@PathVariable String account_no)
     {
-        return accountProfileService.getProfileWithAccDetails(account_no);
+        ResponseTemplateVO accountInfo=accountProfileService.getProfileWithAccDetails(account_no);
+        System.out.println("ankita"+accountProfileService.getProfileWithAccDetails(account_no));
+        if(accountInfo.getAccountDetailsModel()==null)
+        {
+            throw new AccountDetailsNotFoundException("There does not exist a user with account number "+account_no);
+        }
+        return accountInfo;
     }
 
     @GetMapping("/getProfile/{account_no}")
-    public Optional<AccountProfileModel> getUserProfile(@PathVariable String account_no)
-    {
-        return accountProfileService.getAccountProfile(account_no);
+    public Optional<AccountProfileModel> getUserProfile(@PathVariable String account_no) {
+        Optional<AccountProfileModel> accountProfile= accountProfileService.getAccountProfile(account_no);
+        if(accountProfile.isEmpty())
+        {
+            throw new AccountProfileNotFoundException("Account Profile not found with account number "+account_no);
+        }
+        return accountProfile;
     }
 }

@@ -1,5 +1,6 @@
 package com.accountprofile.Account.Profile.Service;
 
+import com.accountprofile.Account.Profile.Exception.AccountProfileNotFoundException;
 import com.accountprofile.Account.Profile.Model.AccountProfileModel;
 import com.accountprofile.Account.Profile.Repository.AccountProfileDAO;
 import com.accountprofile.Account.Profile.ValueObject.AccountDetailsModel;
@@ -15,7 +16,7 @@ import java.util.Optional;
 import java.util.Random;
 
 @Service
-public class AccountProfileService {
+public class AccountProfileService{
 
     private final Logger logger= LoggerFactory.getLogger(this.getClass());
 
