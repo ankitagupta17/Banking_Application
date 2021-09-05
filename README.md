@@ -87,3 +87,17 @@ Login:
 
 To understand the UI:
 https://www.youtube.com/watch?v=YJ7ZgGnhN5k
+
+
+
+
+
+
+
+C:\Program Files\Google\Chrome\Application>chrome.exe --disable-web-security --user-data-dir="c:/ChromeDevSession"
+
+C:\Program Files\Google\Chrome\Application>
+
+netstat -ano | findstr 9000
+
+ taskkill /F /PID 28636
